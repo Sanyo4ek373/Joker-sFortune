@@ -7,7 +7,7 @@ public class BalanceManager : MonoBehaviour {
  
     [SerializeField] private int _baseBalance;
 
-    private int _totalBalance;
+    private int _totalBalance = 500;
     private int _roundBalance;
     private int _totalCost = 2;
 
@@ -40,14 +40,16 @@ public class BalanceManager : MonoBehaviour {
     }
 
     public void SetRoundBalance(int cardsAmount) {
-        
         _totalBalance += _roundBalance - _totalCost;
+        if (_totalBalance <= 0) _totalBalance = _baseBalance;
+ 
+        OnBalanceUpdate?.Invoke(_totalBalance, _roundBalance);
 
         _roundBalance = 0;
         _diamondsValueList = new();
+    }
 
-        if (_totalBalance <= 0) _totalBalance = _baseBalance;
- 
+    private void Awake() {
         OnBalanceUpdate?.Invoke(_totalBalance, _roundBalance);
     }
 }

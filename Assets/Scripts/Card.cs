@@ -4,8 +4,8 @@ public class Card : MonoBehaviour {
     [SerializeField] private SpriteManager _spriteManager;
     [SerializeField] private BalanceManager _balanceManager;
 
-    private int _jockerWinChance = 13;
-    private int _diamondWinChance = 7;   
+    private int _jockerWinChance = 30;
+    private int _diamondWinChance = 20;   
 
     private int _maximumWinValue = 10;
 

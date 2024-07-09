@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public Action OnButtonPlayPressed;
 
+    [SerializeField] private SettingsManager _settingsManager;
+
     [SerializeField] private TextMeshProUGUI _totalBalanceLabel;
     [SerializeField] private TextMeshProUGUI _roundbalanceLabel;
     [SerializeField] private TextMeshProUGUI _roundPriceLabel;
 
     [SerializeField] private TextMeshProUGUI _ticketCostLabel;
+    [SerializeField] private TextMeshProUGUI _cardsAmountLabel;
 
     private BalanceManager _balanceManager;
 
@@ -22,6 +25,7 @@ public class UIManager : MonoBehaviour {
     public void SettingsUIUpdate() {
         _roundPriceLabel.text = $"{_balanceManager.TotalCost}";
         _ticketCostLabel.text = $"{_balanceManager.TicketCost}";
+        _cardsAmountLabel.text = $"{_settingsManager.CardsAmount}";
     }
 
     private void Awake() {
@@ -38,7 +42,7 @@ public class UIManager : MonoBehaviour {
     private void UIUpdate(int totalBalance, int roundBalance) {
         _totalBalanceLabel.text = $"{totalBalance}";
 
-        _roundbalanceLabel.text = roundBalance < 0 ? $"-{roundBalance}" : $"+{roundBalance}";
-        _roundbalanceLabel.color = roundBalance < 0 ? Color.red : Color.green;
+        _roundbalanceLabel.text = roundBalance == 0 ? "0" : $"+{roundBalance}";
+        _roundbalanceLabel.color = roundBalance == 0 ? Color.white : Color.green;
     }
 }
