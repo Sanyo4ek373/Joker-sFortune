@@ -11,15 +11,24 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI _roundbalanceLabel;
     [SerializeField] private TextMeshProUGUI _roundPriceLabel;
 
+    [SerializeField] private TextMeshProUGUI _ticketCostLabel;
+
     private BalanceManager _balanceManager;
 
     public void ButtonPlayPressed() {
-        OnButtonPlayPressed();
+        OnButtonPlayPressed?.Invoke();
+    }
+
+    public void SettingsUIUpdate() {
+        _roundPriceLabel.text = $"{_balanceManager.TotalCost}";
+        _ticketCostLabel.text = $"{_balanceManager.TicketCost}";
     }
 
     private void Awake() {
         _balanceManager = GetComponent<BalanceManager>();
         _balanceManager.OnBalanceUpdate += UIUpdate;
+
+        SettingsUIUpdate();
     }
 
     private void OnDestroy() {

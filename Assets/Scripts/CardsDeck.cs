@@ -1,16 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(UIManager))]
 public class CardsDeck : MonoBehaviour {
     [SerializeField] private BalanceManager _balanceManager;
+    [SerializeField] private UIManager _uIManager;
+    [SerializeField] private SettingsManager _settingsManager;
 
-    [SerializeField] private Card[] _cards;
-    [SerializeField] private int _deckSize;
+    [SerializeField] private Card[] _cards; 
 
-    private UIManager _uIManager;
+    private int _deckSize = 12;
 
     private void Awake() {
-        _uIManager = GetComponent<UIManager>();
         _uIManager.OnButtonPlayPressed += CardsDeckUpdate;
     }
 
@@ -20,6 +19,8 @@ public class CardsDeck : MonoBehaviour {
 
     private void CardsDeckUpdate() {
         int diamondsAmount = 0;
+    
+        CheckDeckSize();
 
         for (int i = 0; i < _deckSize; ++i) {
             CardType cardType = _cards[i].InitializeCard(_balanceManager.WinChance, _balanceManager.WinValue);
@@ -29,5 +30,19 @@ public class CardsDeck : MonoBehaviour {
         if (diamondsAmount >= 3) _balanceManager.CalculateDiamondsPrize(diamondsAmount);
 
         _balanceManager.SetRoundBalance(_deckSize);
+    }
+
+    private void CheckDeckSize() {
+        if (_deckSize > _settingsManager.CardsAmount) {
+            for (int i = 0; i < _deckSize - _settingsManager.CardsAmount; ++i) {
+                _cards[11-i].ChangeCardState(false);
+            }
+        } else if (_deckSize < _settingsManager.CardsAmount) {
+            for (int i = 0; i < _settingsManager.CardsAmount - _deckSize; ++i) {
+                _cards[11-i].ChangeCardState(true);
+            }
+        }
+
+        _deckSize = _settingsManager.CardsAmount;
     }
 }

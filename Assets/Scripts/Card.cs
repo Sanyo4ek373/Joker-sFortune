@@ -20,6 +20,10 @@ public class Card : MonoBehaviour {
         return _cardType;
     }
 
+    public void ChangeCardState(bool cardState) {
+        _spriteManager.ChangeCardSprite(cardState);
+    }
+
     private CardType CardRoll(int winChance) {
         int jockerWinCondition = Random.Range(0, _jockerWinChance - winChance);
         if (jockerWinCondition == 0) return CardType.Jocker;

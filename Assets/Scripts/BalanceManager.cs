@@ -7,16 +7,18 @@ public class BalanceManager : MonoBehaviour {
  
     [SerializeField] private int _baseBalance;
 
+    private int _totalBalance;
+    private int _roundBalance;
+    private int _totalCost = 2;
+
+    private List<int> _diamondsValueList = new();
+
     public int TotalBalance => _totalBalance;
+    public int TotalCost => _totalCost;
 
     public int WinChance {get; set;}
     public int WinValue {get; set;}
     public int TicketCost {get; set;}
-
-    private int _totalBalance;
-    private int _roundBalance;
-
-    private List<int> _diamondsValueList = new();
 
     public void CalculateTotalPrize(CardType cardType, int winAmount) {
         if (cardType == CardType.Jocker) _roundBalance += winAmount;
@@ -33,13 +35,19 @@ public class BalanceManager : MonoBehaviour {
         _roundBalance += totalPrize;
     }
 
+    public void SetTotalPrice(int cardsAmount) {
+        _totalCost = cardsAmount * TicketCost;
+    }
+
     public void SetRoundBalance(int cardsAmount) {
-        _totalBalance += _roundBalance - cardsAmount * TicketCost * WinValue;
+        
+        _totalBalance += _roundBalance - _totalCost;
+
         _roundBalance = 0;
         _diamondsValueList = new();
 
         if (_totalBalance <= 0) _totalBalance = _baseBalance;
  
-        OnBalanceUpdate(_totalBalance, _roundBalance);
+        OnBalanceUpdate?.Invoke(_totalBalance, _roundBalance);
     }
 }

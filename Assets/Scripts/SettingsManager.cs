@@ -11,11 +11,19 @@ public class SettingsManager : MonoBehaviour {
     private int _cardsAmount = 12;
     private int _minimumWinChance = 13;
 
-    private void Update() {
+    public int CardsAmount => _cardsAmount;
+
+    public void SetSettings() {
         _cardsAmount = (int) _cardsAmountSlider.value;
         _balanceManager.WinChance = _minimumWinChance - _cardsAmount;
 
         _balanceManager.TicketCost = (int) _ticketCostSlider.value;
         _balanceManager.WinValue = _balanceManager.TicketCost / 2;
+
+        _balanceManager.SetTotalPrice(_cardsAmount);
+    }
+
+    private void Awake() {
+        SetSettings();
     }
 }
