@@ -7,7 +7,7 @@ public class Card : MonoBehaviour {
     private int _jockerWinChance = 13;
     private int _diamondWinChance = 7;   
 
-    private int _maxWinValue = 30;
+    private int _maximumWinValue = 10;
 
     public CardType InitializeCard(int winChance, int winValueMultiplier) {
         int totalPrize = WinValueRoll(winValueMultiplier);
@@ -30,6 +30,6 @@ public class Card : MonoBehaviour {
     }
 
     private int WinValueRoll(int winValueMultiplier) {
-        return Random.Range(1 * winValueMultiplier, _maxWinValue * winValueMultiplier);
+        return Random.Range(1 * winValueMultiplier, _maximumWinValue * winValueMultiplier);
     }
 }

@@ -5,15 +5,16 @@ using System.Collections.Generic;
 public class BalanceManager : MonoBehaviour {
     public Action<int, int> OnBalanceUpdate;
  
-    [SerializeField] private int _totalBalance;
+    [SerializeField] private int _baseBalance;
 
     public int TotalBalance => _totalBalance;
 
     public int WinChance {get; set;}
     public int WinValue {get; set;}
+    public int TicketCost {get; set;}
 
+    private int _totalBalance;
     private int _roundBalance;
-    private int _ticketCost = 1;
 
     private List<int> _diamondsValueList = new();
 
@@ -29,15 +30,16 @@ public class BalanceManager : MonoBehaviour {
             totalPrize *= _diamondsValueList[i];
         }
 
-        _totalBalance += totalPrize;
+        _roundBalance += totalPrize;
     }
 
     public void SetRoundBalance(int cardsAmount) {
-        _totalBalance += _roundBalance - cardsAmount * _ticketCost * WinValue;
+        _totalBalance += _roundBalance - cardsAmount * TicketCost * WinValue;
         _roundBalance = 0;
+        _diamondsValueList = new();
 
-        if (_totalBalance <= 0) _totalBalance = 1000;
-
+        if (_totalBalance <= 0) _totalBalance = _baseBalance;
+ 
         OnBalanceUpdate(_totalBalance, _roundBalance);
     }
 }

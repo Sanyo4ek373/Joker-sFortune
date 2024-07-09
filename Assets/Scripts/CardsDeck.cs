@@ -1,13 +1,21 @@
 using UnityEngine;
 
+[RequireComponent(typeof(UIManager))]
 public class CardsDeck : MonoBehaviour {
     [SerializeField] private BalanceManager _balanceManager;
 
     [SerializeField] private Card[] _cards;
     [SerializeField] private int _deckSize;
 
-    public void ShowDeck() {
-        CardsDeckUpdate();
+    private UIManager _uIManager;
+
+    private void Awake() {
+        _uIManager = GetComponent<UIManager>();
+        _uIManager.OnButtonPlayPressed += CardsDeckUpdate;
+    }
+
+    private void OnDestroy() {
+        _uIManager.OnButtonPlayPressed -= CardsDeckUpdate;
     }
 
     private void CardsDeckUpdate() {

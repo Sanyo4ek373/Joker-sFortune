@@ -1,14 +1,21 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(BalanceManager))]
 public class UIManager : MonoBehaviour {
+    public Action OnButtonPlayPressed;
+
     [SerializeField] private TextMeshProUGUI _totalBalanceLabel;
     [SerializeField] private TextMeshProUGUI _roundbalanceLabel;
     [SerializeField] private TextMeshProUGUI _roundPriceLabel;
 
     private BalanceManager _balanceManager;
+
+    public void ButtonPlayPressed() {
+        OnButtonPlayPressed();
+    }
 
     private void Awake() {
         _balanceManager = GetComponent<BalanceManager>();
@@ -21,7 +28,7 @@ public class UIManager : MonoBehaviour {
 
     private void UIUpdate(int totalBalance, int roundBalance) {
         _totalBalanceLabel.text = $"{totalBalance}";
-        
+
         _roundbalanceLabel.text = roundBalance < 0 ? $"-{roundBalance}" : $"+{roundBalance}";
         _roundbalanceLabel.color = roundBalance < 0 ? Color.red : Color.green;
     }
