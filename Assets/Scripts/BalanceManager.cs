@@ -2,7 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class BalanceManager : MonoBehaviour {
+    public Action<int, int> OnBalanceUpdate;
+ 
     [SerializeField] private int _totalBalance;
+
+    public int TotalBalance => _totalBalance;
 
     public int WinChance {get; set;}
     public int WinValue {get; set;}
@@ -32,5 +36,7 @@ public class BalanceManager : MonoBehaviour {
         _roundBalance = 0;
 
         if (_totalBalance <= 0) _totalBalance = 1000;
+        
+        OnBalanceUpdate(_totalBalance, _roundBalance);
     }
 }

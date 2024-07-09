@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class Card : MonoBehaviour {
-    [SerializeField] SpriteManager _spriteManager;
-    [SerializeField] BalanceManager _balanceManager;
+    [SerializeField] private SpriteManager _spriteManager;
+    [SerializeField] private BalanceManager _balanceManager;
 
     private int _jockerWinChance = 13;
     private int _diamondWinChance = 7;   

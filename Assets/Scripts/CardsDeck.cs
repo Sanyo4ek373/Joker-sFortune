@@ -1,10 +1,10 @@
 using UnityEngine;
 
 public class CardsDeck : MonoBehaviour {
-    [SerializeField] BalanceManager _balanceManager;
+    [SerializeField] private BalanceManager _balanceManager;
 
-    [SerializeField] Card[] _cards;
-    [SerializeField] int _deckSize;
+    [SerializeField] private Card[] _cards;
+    [SerializeField] private int _deckSize;
 
     public void ShowDeck() {
         CardsDeckUpdate();
