@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -36,7 +37,7 @@ public class BalanceManager : MonoBehaviour {
         _roundBalance = 0;
 
         if (_totalBalance <= 0) _totalBalance = 1000;
-        
+
         OnBalanceUpdate(_totalBalance, _roundBalance);
     }
 }
