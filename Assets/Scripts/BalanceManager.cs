@@ -2,16 +2,19 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class BalanceManager : MonoBehaviour {
-    [SerializeField] private int _balance;
+    [SerializeField] private int _totalBalance;
 
-    private int _jocker = 7;
-    private int _diamond = 1;
+    public int WinChance {get; set;}
+    public int WinValue {get; set;}
+
+    private int _roundBalance;
+    private int _ticketCost = 1;
 
     private List<int> _diamondsValueList = new();
 
-    public void CalculateTotalPrize(int cardType, int winAmount) {
-        if (cardType == _jocker) _balance += winAmount;
-        else if (cardType == _diamond) _diamondsValueList.Add(winAmount);
+    public void CalculateTotalPrize(CardType cardType, int winAmount) {
+        if (cardType == CardType.Jocker) _roundBalance += winAmount;
+        else _diamondsValueList.Add(winAmount);
     }
 
     public void CalculateDiamondsPrize(int diamondsAmount) {
@@ -21,6 +24,13 @@ public class BalanceManager : MonoBehaviour {
             totalPrize *= _diamondsValueList[i];
         }
 
-        _balance += totalPrize;
+        _totalBalance += totalPrize;
+    }
+
+    public void SetRoundBalance(int cardsAmount) {
+        _totalBalance += _roundBalance - cardsAmount * _ticketCost * WinValue;
+        _roundBalance = 0;
+
+        if (_totalBalance <= 0) _totalBalance = 1000;
     }
 }

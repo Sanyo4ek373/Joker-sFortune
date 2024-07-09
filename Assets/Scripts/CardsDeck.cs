@@ -6,11 +6,6 @@ public class CardsDeck : MonoBehaviour {
     [SerializeField] Card[] _cards;
     [SerializeField] int _deckSize;
 
-    private int _diamond = 1;
-
-    public int WinChance {get; set;}
-    public int WinValue {get; set;}
-
     public void ShowDeck() {
         CardsDeckUpdate();
     }
@@ -19,10 +14,12 @@ public class CardsDeck : MonoBehaviour {
         int diamondsAmount = 0;
 
         for (int i = 0; i < _deckSize; ++i) {
-            int cardType = _cards[i].InitializeCard(WinChance, WinValue);
-            if (cardType == _diamond) diamondsAmount += 1;
+            CardType cardType = _cards[i].InitializeCard(_balanceManager.WinChance, _balanceManager.WinValue);
+            if (cardType == CardType.Diamond) diamondsAmount += 1;
         }
 
         if (diamondsAmount >= 3) _balanceManager.CalculateDiamondsPrize(diamondsAmount);
+
+        _balanceManager.SetRoundBalance(_deckSize);
     }
 }
