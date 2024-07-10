@@ -1888,7 +1888,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb05eb282d290fbb8af93f3fa89d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprites: []
+  _defaultSprites:
+  - {fileID: 21300000, guid: eee9690f0d49f5f9c930d1be9cacce0f, type: 3}
+  - {fileID: 21300000, guid: 4db59c4b980a357dc9c5554dd5e79724, type: 3}
+  - {fileID: 21300000, guid: d3a909cbec23d86ffb122488cfd20410, type: 3}
+  - {fileID: 21300000, guid: b9e193930304db6a186cf6f3dd3204f3, type: 3}
+  - {fileID: 21300000, guid: 86f2c7ec75a4c82898bc293cda642fdf, type: 3}
+  - {fileID: 21300000, guid: 4113ad2dae704e23cbe4d77609ba5d80, type: 3}
+  - {fileID: 21300000, guid: f09648b02c4ed4919b34ac49b93f6e13, type: 3}
+  - {fileID: 21300000, guid: 9b822091fa4bf1f6eb5ee09afe1a27fa, type: 3}
+  - {fileID: 21300000, guid: 8531d37acd1751535974eebee5ef9a1d, type: 3}
+  - {fileID: 21300000, guid: 0e0914e956984400790bb0996e6fec70, type: 3}
+  - {fileID: 21300000, guid: f60aa95981c11b1b1bd8af57e2c33f50, type: 3}
+  - {fileID: 21300000, guid: 72d7a254648f24c7ab5647dd6b02af14, type: 3}
+  - {fileID: 21300000, guid: beeaf27508ce4cc379105e24da66a82d, type: 3}
+  - {fileID: 21300000, guid: 1e2d8f8f2918343e49fc2c98f0f6cf80, type: 3}
+  - {fileID: 21300000, guid: b2bdda63d738d19c5ab4c365a72d35db, type: 3}
+  - {fileID: 21300000, guid: 8723f75e1c34c50cc89598475e59a675, type: 3}
+  - {fileID: 21300000, guid: 2818a9b4b718af961b4f58759d683445, type: 3}
+  - {fileID: 21300000, guid: 24b8a4bc90a3606748e685e089455664, type: 3}
+  - {fileID: 21300000, guid: d87dae9dbc86b7e9e8b189351f4453f3, type: 3}
+  - {fileID: 21300000, guid: 52aace0b3c1b495f4908346616254c3f, type: 3}
+  - {fileID: 21300000, guid: eb37ca62104c6e679adabdc09c1ad5dd, type: 3}
+  - {fileID: 21300000, guid: f58092897911fa8de8f5ec90714eda93, type: 3}
+  - {fileID: 21300000, guid: d887619e19fe599428ff8d2329823046, type: 3}
+  - {fileID: 21300000, guid: f86eb8e38af6488d59fb55d25554f605, type: 3}
+  _jockerSprite: {fileID: 21300000, guid: 25b582ec0de5b7b2594f27a26c93dd32, type: 3}
+  _diamondSprite: {fileID: 21300000, guid: fa4b4ddede2c1abed8fc07783f6f1168, type: 3}
+  _cardBackSprite: {fileID: 21300000, guid: 62acc0c57031e617199b029ebc8775fb, type: 3}
+  _cardInactiveSprite: {fileID: 21300000, guid: 00602a42b08b22446a202cbe8faaa08f, type: 3}
 --- !u!4 &787045814
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,6 +2147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsManager: {fileID: 1755527954}
+  _spriteManager: {fileID: 787045813}
   _totalBalanceLabel: {fileID: 849071050}
   _roundbalanceLabel: {fileID: 1305896733}
   _roundPriceLabel: {fileID: 1480345793}
