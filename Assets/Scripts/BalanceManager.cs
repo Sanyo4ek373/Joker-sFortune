@@ -49,7 +49,7 @@ public class BalanceManager : MonoBehaviour {
         _diamondsValueList = new();
     }
 
-    private void Awake() {
+    private void Start() {
         OnBalanceUpdate?.Invoke(_totalBalance, _roundBalance);
     }
 }

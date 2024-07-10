@@ -35,11 +35,11 @@ public class CardsDeck : MonoBehaviour {
     private void CheckDeckSize() {
         if (_deckSize > _settingsManager.CardsAmount) {
             for (int i = 0; i < _deckSize - _settingsManager.CardsAmount; ++i) {
-                _cards[11-i].ChangeCardState(false);
+                _cards[_settingsManager.CardsAmount +i].ChangeCardState(false);
             }
         } else if (_deckSize < _settingsManager.CardsAmount) {
             for (int i = 0; i < _settingsManager.CardsAmount - _deckSize; ++i) {
-                _cards[11-i].ChangeCardState(true);
+                _cards[_deckSize + i].ChangeCardState(true);
             }
         }
 

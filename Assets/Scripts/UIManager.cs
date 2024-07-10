@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour {
 
     private bool _isBusy = false;
 
-    private float _roundTime = 3f;
+    private float _roundTime = 2f;
 
     public void ButtonPlayPressed() {
         if (_isBusy) return;
@@ -40,7 +40,9 @@ public class UIManager : MonoBehaviour {
     private void Awake() {
         _balanceManager = GetComponent<BalanceManager>();
         _balanceManager.OnBalanceUpdate += UIUpdate;
+    }
 
+    private void Start() {
         SettingsUIUpdate();
     }
 

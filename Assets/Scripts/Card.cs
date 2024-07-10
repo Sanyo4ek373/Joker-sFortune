@@ -23,7 +23,11 @@ public class Card : MonoBehaviour {
     }
 
     public void ChangeCardState(bool cardState) {
-        _cardSprite.sprite = _spriteManager.ChangeCardState(cardState);
+        if (cardState) _spriteManager.OnCardSpriteChange += ChangeSpriteToBack;
+        else {
+            _cardSprite.sprite = _spriteManager.ChangeCardState(cardState);
+            _spriteManager.OnCardSpriteChange -= ChangeSpriteToBack;
+        }
     }
 
     private void Awake() {
@@ -50,6 +54,6 @@ public class Card : MonoBehaviour {
     }
 
     private void ChangeSpriteToBack() {
-        _spriteManager.ChangeCardState(true);
+        _cardSprite.sprite = _spriteManager.ChangeCardState(true);
     }
 }
