@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour {
+    public int CardsAmount => _cardsAmount;
+
     [SerializeField] private Slider _cardsAmountSlider;
     [SerializeField] private Slider _ticketCostSlider;
 
@@ -10,8 +12,6 @@ public class SettingsManager : MonoBehaviour {
 
     private int _cardsAmount = 12;
     private int _minimumWinChance = 13;
-
-    public int CardsAmount => _cardsAmount;
 
     public void SetSettings() {
         _cardsAmount = (int) _cardsAmountSlider.value;
