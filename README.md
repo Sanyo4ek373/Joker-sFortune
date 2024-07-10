@@ -1,5 +1,8 @@
-Overall view of the game:
+Game look in Uniy simulator
 ![image](https://github.com/Sanyo4ek373/Joker-sFortune/assets/71271563/1b81604a-56af-4985-9eb6-d5bbe8931a51)
+
+Overall view of the game:
+https://github.com/Sanyo4ek373/Joker-sFortune/assets/71271563/68c51ce1-2e71-4e7e-84e4-a674bb0e0a71
 
 Game mechanics:
 if a joker appears, you get the amount that is lower than the card
