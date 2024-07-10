@@ -11,10 +11,9 @@ public class BalanceManager : MonoBehaviour {
     public int WinChance {get; set;}
     public int WinValue {get; set;}
     public int TicketCost {get; set;}
- 
-    [SerializeField] private int _baseBalance;
 
     private int _totalBalance = 500;
+    private int _baseBalance = 500;
     private int _roundBalance;
     private int _totalCost = 2;
 
@@ -53,8 +52,8 @@ public class BalanceManager : MonoBehaviour {
     }
 
     private void Awake() {
-        _baseBalance = PlayerPrefs.GetInt(TOTAL_BALANCE);
-        if (_baseBalance != 0) _totalBalance = _baseBalance;
+        int oldBalance = PlayerPrefs.GetInt(TOTAL_BALANCE);
+        if (oldBalance != 0) _totalBalance = oldBalance;
     }
 
     private void Start() {

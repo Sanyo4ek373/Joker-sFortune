@@ -13,6 +13,7 @@ public class Card : MonoBehaviour {
     private int _diamondWinChance = 20;   
 
     private int _maximumWinValue = 15;
+    private int _minimumWinValue = 3;
 
     public CardType InitializeCard(int winChance, int winValueMultiplier, int diamondsAmount) {
         int winAmount = WinValueRoll(winValueMultiplier);
@@ -59,7 +60,7 @@ public class Card : MonoBehaviour {
     }
 
     private int WinValueRoll(int winValueMultiplier) {
-        return Random.Range(1 * winValueMultiplier, _maximumWinValue * winValueMultiplier);
+        return Random.Range(_minimumWinValue * winValueMultiplier, _maximumWinValue * winValueMultiplier);
     }
 
     private void ChangeSpriteToBack() {
