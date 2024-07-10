@@ -782,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 1931387894}
 --- !u!212 &291297152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1462,6 +1463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 1489435179}
 --- !u!1 &457338659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 1015542041}
 --- !u!1 &467184650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 335667257}
 --- !u!1 &699833189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3776,6 +3780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 425933074}
 --- !u!212 &1042246951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4917,6 +4922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 179036082}
 --- !u!1 &1528718377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,6 +5327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 535046349}
 --- !u!1 &1675862105
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,6 +5967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 810775580}
 --- !u!212 &1955673447
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6260,6 +6268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 664583914}
 --- !u!1 &2012316864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6426,6 +6435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 495070030}
 --- !u!212 &2048342030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6592,6 +6602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 1531623281}
 --- !u!1 &2101834863
 GameObject:
   m_ObjectHideFlags: 0
@@ -6727,6 +6738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteManager: {fileID: 787045813}
   _balanceManager: {fileID: 905820955}
+  _winAmountLabel: {fileID: 833919266}
 --- !u!1 &2127854830
 GameObject:
   m_ObjectHideFlags: 0
