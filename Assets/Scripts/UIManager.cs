@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(BalanceManager))]
 public class UIManager : MonoBehaviour {
@@ -22,13 +21,10 @@ public class UIManager : MonoBehaviour {
 
     private bool _isBusy = false;
 
-    private float _roundTime = 2f;
+    private float _waitTime = 1f;
 
     public void ButtonPlayPressed() {
-        if (_isBusy) return;
-
-        OnButtonPlayPressed?.Invoke();
-        StartCoroutine(RoundTime(_roundTime));
+        if (!_isBusy) StartCoroutine(RoundTime(_waitTime));
     }
 
     public void SettingsUIUpdate() {
@@ -59,10 +55,11 @@ public class UIManager : MonoBehaviour {
 
     private IEnumerator RoundTime(float waitTime) {
         _isBusy = true;
+        _spriteManager.ChangeCardSprite();
 
         yield return new WaitForSeconds(waitTime);
 
-        _spriteManager.ChangeCardSprite();
+        OnButtonPlayPressed?.Invoke();
         _isBusy = false;
     }
 }

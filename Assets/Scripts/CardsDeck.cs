@@ -23,11 +23,11 @@ public class CardsDeck : MonoBehaviour {
         CheckDeckSize();
 
         for (int i = 0; i < _deckSize; ++i) {
-            CardType cardType = _cards[i].InitializeCard(_balanceManager.WinChance, _balanceManager.WinValue);
+            CardType cardType = _cards[i].InitializeCard(_balanceManager.WinChance, _balanceManager.WinValue, diamondsAmount);
             if (cardType == CardType.Diamond) diamondsAmount += 1;
         }
 
-        if (diamondsAmount >= 3) _balanceManager.CalculateDiamondsPrize(diamondsAmount);
+        if (diamondsAmount == 3) _balanceManager.CalculateDiamondsPrize(diamondsAmount);
 
         _balanceManager.SetRoundBalance(_deckSize);
     }
