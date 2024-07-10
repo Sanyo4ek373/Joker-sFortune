@@ -15,4 +15,5 @@ if 3 cards with diamonds appear, you get their multiplied sum (the value under e
 
 the game is controlled by two sliders that are responsible for the number of active cards and their price (the win depends on the price of the cards)
 and the play button, after pressing which the deck of cards is updated and the win (or loss) is calculated
+
 ![image](https://github.com/Sanyo4ek373/Joker-sFortune/assets/71271563/4bb54d10-b963-49c5-a344-240deaa5b196)
