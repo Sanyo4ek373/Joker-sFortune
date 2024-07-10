@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 public class BalanceManager : MonoBehaviour {
     public Action<int, int> OnBalanceUpdate;
+
+    public int TotalBalance => _totalBalance;
+    public int TotalCost => _totalCost;
+
+    public int WinChance {get; set;}
+    public int WinValue {get; set;}
+    public int TicketCost {get; set;}
  
     [SerializeField] private int _baseBalance;
 
@@ -13,12 +20,7 @@ public class BalanceManager : MonoBehaviour {
 
     private List<int> _diamondsValueList = new();
 
-    public int TotalBalance => _totalBalance;
-    public int TotalCost => _totalCost;
-
-    public int WinChance {get; set;}
-    public int WinValue {get; set;}
-    public int TicketCost {get; set;}
+    private const string TOTAL_BALANCE = "total balance";
 
     public void CalculateTotalPrize(CardType cardType, int winAmount) {
         if (cardType == CardType.Jocker) _roundBalance += winAmount;
@@ -42,11 +44,17 @@ public class BalanceManager : MonoBehaviour {
     public void SetRoundBalance(int cardsAmount) {
         _totalBalance += _roundBalance - _totalCost;
         if (_totalBalance <= 0) _totalBalance = _baseBalance;
+        PlayerPrefs.SetInt(TOTAL_BALANCE, _totalBalance);
  
         OnBalanceUpdate?.Invoke(_totalBalance, _roundBalance);
 
         _roundBalance = 0;
         _diamondsValueList = new();
+    }
+
+    private void Awake() {
+        _baseBalance = PlayerPrefs.GetInt(TOTAL_BALANCE);
+        if (_baseBalance != 0) _totalBalance = _baseBalance;
     }
 
     private void Start() {
