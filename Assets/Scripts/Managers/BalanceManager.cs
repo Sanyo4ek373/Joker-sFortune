@@ -32,7 +32,6 @@ public class BalanceManager : MonoBehaviour {
         for (int i = 0; i < diamondsAmount; ++i) {
             totalPrize *= _diamondsValueList[i];
         }
-
         _roundBalance += totalPrize;
     }
 

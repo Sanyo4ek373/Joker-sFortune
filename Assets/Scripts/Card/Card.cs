@@ -15,6 +15,8 @@ public class Card : MonoBehaviour {
     private int _maximumWinValue = 15;
     private int _minimumWinValue = 3;
 
+    private int _diamondsWinAmount = 3;
+
     public CardType InitializeCard(int winChance, int winValueMultiplier, int diamondsAmount) {
         int winAmount = WinValueRoll(winValueMultiplier);
 
@@ -52,7 +54,7 @@ public class Card : MonoBehaviour {
         int jockerWinCondition = Random.Range(0, _jockerWinChance - winChance);
         if (jockerWinCondition == 0) return CardType.Jocker;
 
-        if (diamondsAmount != 3) {
+        if (diamondsAmount != _diamondsWinAmount) {
             int diamondWinCondition = Random.Range(0, _diamondWinChance - winChance);
             if (diamondWinCondition == 0) return CardType.Diamond;
         } 
